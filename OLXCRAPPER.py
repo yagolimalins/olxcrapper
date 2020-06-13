@@ -5,7 +5,7 @@ import os
 import smtplib
 from email.message import EmailMessage
 
-url = "https://al.olx.com.br/instrumentos-musicais/guitarras" # <- MUDE O LINK DE ACORDO COM A CATEGORIA DESEJADA
+url = "https://al.olx.com.br/autos-e-pecas/carros-vans-e-utilitarios" # <- MUDE O LINK DE ACORDO COM A CATEGORIA DESEJADA
 
 EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
