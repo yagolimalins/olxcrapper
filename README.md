@@ -8,7 +8,7 @@
 
 </h1>
 
-> Script de Web Scraping em Python para categorias de anúncio da OLX com notificações por EMAIL
+> Script de Web Scraping em Python para categorias da OLX com notificações de novos anúncios por EMAIL 
 
 ### [Homepage](https://github.com/yagolimalins/OLXCRAPPER)
 
