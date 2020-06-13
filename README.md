@@ -8,13 +8,7 @@
 
 > Script de Web Scraping em Python para categorias de anúncio da OLX
 
-### 🏠   [Homepage](https://github.com/yagolimalins/OLXCRAPPER)
-
-## Instalação
-
-```sh
-git clone https://github.com/yagolimalins/OLXCRAPPER.git
-```
+### [Homepage](https://github.com/yagolimalins/OLXCRAPPER)
 
 ## Instruções
 
@@ -34,29 +28,40 @@ OBS: ESSE SCRIPT USA O SERVIDOR DO GMAIL, UTILIZE DADOS DE UMA CONTA GOOGLE AO D
 AS VARIÁVEIS DE AMBIENTE EMAIL_USER e EMAIL_PASS NO SISTEMA.
 ```
 
+## Instalação e uso
+
+```sh
+
+Após instaladas todas as dependências necessárias 
+e configurar as variáveis de ambiente, execute os comandos:
+
+git clone https://github.com/yagolimalins/OLXCRAPPER.git
+cd OLXCRAPPER
+python OLXCRAPPER.py
+```
+
 ## Autor
 
-👤    **Yago Lima Lins**
+**Yago Lima Lins**
 
 * Github: [@yagolimalins](https://github.com/yagolimalins)
 
-## 🤝    Contributing
+## Contribua com o projeto
 
 <br> Contribuições, bugs e pedidos de novas funcionalidades são bem vindos! <br />
 Sinta-se a vontade para conferir: [issues page](https://github.com/yagolimalins/OLXCRAPPER/issues). 
 
 ## Apoie o autor
 
-Deixe uma ⭐️   se esse projeto te ajudou!
+Deixe uma estrela se esse projeto te ajudou! :)
 
 <a href="https://www.patreon.com/yagolimalins">
   <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
-## 📝 Licença
+## Licença
 
 Copyright © 2020 [Yago Lima Lins](https://github.com/yagolimalins).<br />
 This project is [GNU](https://www.gnu.org/licenses/gpl-3.0.pt-br.html) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
