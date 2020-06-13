@@ -26,7 +26,7 @@ armazenar o seu endereço de email, e EMAIL_PASS armazenará a senha do seu emai
 variáveis de ambiente são utilizadas nesse script para que seus dados pessoais 
 não sejam expostos no código. 
 
-OBS: ESSE SCRIPT USA O SERVIDOR DO GMAIL, UTILIZE DADOS DE UMA CONTA GOOGLE AO DEFINIR 
+OBS: ESSE SCRIPT USA O SERVIDOR DO GMAIL, UTILIZE DADOS DE LOGIN DE UMA CONTA GOOGLE AO DEFINIR 
 AS VARIÁVEIS DE AMBIENTE EMAIL_USER e EMAIL_PASS NO SISTEMA.
 ```
 
@@ -39,6 +39,13 @@ git clone https://github.com/yagolimalins/OLXCRAPPER.git
 cd OLXCRAPPER
 python ./OLXCRAPPER.py
 ```
+Após iniciado o script continuará checando a categoria informada na URL do script a cada 10 seg,
+caso haja algum anúncio novo nessa categoria, o script irá enviar um email para o endereço
+configurado nas variável de ambiente EMAIL_USER do sistema do usuário.
+
+OBS: Quando iniciado, o script enviará um email com o anuncio mais recente como teste, e só
+voltará a enviar um novo email de notificação quando surgir um novo anúncio para evitar spammar
+sua caixa de email :)
 
 ## Autor
 
