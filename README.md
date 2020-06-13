@@ -14,7 +14,6 @@
 
 ## Instruções
 
-```sh
 Esse script depende do Python e dos módulos: bs4, smtplib, email, requests, time. 
 
 Mude a variavel URL do script para o link da categoria da OLX que deseja fazer scraping. 
@@ -28,7 +27,6 @@ não sejam expostos no código.
 
 OBS: ESSE SCRIPT USA O SERVIDOR DO GMAIL, UTILIZE DADOS DE LOGIN DE UMA CONTA GOOGLE AO DEFINIR 
 AS VARIÁVEIS DE AMBIENTE EMAIL_USER e EMAIL_PASS NO SISTEMA.
-```
 
 ## Instalação e uso
 
