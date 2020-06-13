@@ -1,4 +1,4 @@
-<h1 align="center">OL' X-CRAPPER</h1>
+<h1 align="center">OL' X-CRAPPER
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://www.gnu.org/licenses/gpl-3.0.pt-br.html" target="_blank">
@@ -6,7 +6,9 @@
   </a>
 </p>
 
-> Script de Web Scraping em Python para categorias de anúncio da OLX
+</h1>
+
+> Script de Web Scraping em Python para categorias de anúncio da OLX com notificações por EMAIL
 
 ### [Homepage](https://github.com/yagolimalins/OLXCRAPPER)
 
@@ -48,7 +50,7 @@ python OLXCRAPPER.py
 
 ## Contribua com o projeto
 
-<br> Contribuições, bugs e pedidos de novas funcionalidades são bem vindos! <br />
+Contribuições, bugs e pedidos de novas funcionalidades são bem vindos! <br />
 Sinta-se a vontade para conferir: [issues page](https://github.com/yagolimalins/OLXCRAPPER/issues). 
 
 ## Apoie o autor
