@@ -32,14 +32,12 @@ AS VARIÁVEIS DE AMBIENTE EMAIL_USER e EMAIL_PASS NO SISTEMA.
 
 ## Instalação e uso
 
-```sh
-
 Após instaladas todas as dependências necessárias 
 e configurar as variáveis de ambiente, execute os comandos:
-
+```sh
 git clone https://github.com/yagolimalins/OLXCRAPPER.git
 cd OLXCRAPPER
-python OLXCRAPPER.py
+python ./OLXCRAPPER.py
 ```
 
 ## Autor
