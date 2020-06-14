@@ -90,5 +90,5 @@ while True:
         checkandsend(old)
     else:
         print("Erro de conexão, código de status do site: " + str(statuscodenumber))
-        
+
     time.sleep(30)
