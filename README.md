@@ -12,9 +12,9 @@
 
 ## Introdução
 
-Script em Python + Beautiful Soup que realiza consultas exaustivas em categorias da OLX em busca de anúncios novos
+Script em Python + Beautiful Soup que realiza consultas exaustivas em categorias da OLX em busca de anúncios novos,
 ao encontrar um novo anúncio nessa categoria, ele usa as credenciais de login do GMail fornecidas nas variáveis do script
-para enviar para si mesmo um Email com informações sobre o novo produto da categoria.
+para enviar para o próprio usuário um Email com informações sobre o novo produto da categoria.
 
 ## Requisitos
 
