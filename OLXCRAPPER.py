@@ -5,7 +5,8 @@ import os
 import smtplib
 from email.message import EmailMessage
 
-url = "https://www.olx.com.br/autos-e-pecas" # <- MUDE O LINK DE ACORDO COM A CATEGORIA DESEJADA
+url = "https://sp.olx.com.br/celulares" # <- MUDE O LINK DE ACORDO COM A CATEGORIA E ESTADO DESEJADOS 
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'} 
 
 EMAIL_ADDRESS = 'xxxxxx@gmail.com' # <- INSIRA SEU GMAIL ENTRE ASPAS COMO NO EXEMPLO
 EMAIL_PASSWORD = 'xxxxxxxxxxxxxxxx' # <- INSIRA SUA SENHA ENTRE ASPAS COMO NO EXEMPLO
@@ -15,10 +16,7 @@ EMAIL_PASSWORD = 'xxxxxxxxxxxxxxxx' # <- INSIRA SUA SENHA ENTRE ASPAS COMO NO EX
 #EMAIL_ADDRESS = os.environ.get('EMAIL_USER') 
 #EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'} 
-
-
-def webscraper(url=url, headers=headers):
+def banner():
 
     print()
     print(" ██████╗ ██╗    ██╗     ██╗  ██╗      ██████╗██████╗  █████╗ ██████╗ ██████╗ ███████╗██████╗")
@@ -28,49 +26,38 @@ def webscraper(url=url, headers=headers):
     print("╚██████╔╝███████╗       ██╔╝ ██╗     ╚██████╗██║  ██║██║  ██║██║     ██║     ███████╗██║  ██║")
     print(" ╚═════╝ ╚══════╝       ╚═╝  ╚═╝      ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝╚═╝  ╚═╝ \n")
 
-    result = requests.get(url, headers=headers) #Faz uma requisição da página
+def statuscode(url=url, headers=headers):
 
-    lista = [] # Inicia a variável lista onde serão armazenados os produtos, preços, etc em sublistas
-    
-    if result.status_code == 200: #Checa se a página está acessível
+    result = requests.get(url, headers=headers)
+    statuscodenumber = int(result.status_code)
 
-        # print("Código de status: 200 (URL Acessível) \n")
+    return(statuscodenumber)
 
-        src = result.content
-        # print(src)
+def webscrap(url=url, headers=headers, ):
 
-        soup = BeautifulSoup(src, 'lxml')
+    result = requests.get(url, headers=headers)
+    src = result.content
+    soup = BeautifulSoup(src, 'lxml')
+    items = soup.find_all('a')
+    lista = []
 
-        links = soup.find_all('a') #Busca pela tag HTML 'a'
-        #print(links)
-        
+    for item in items:
 
-        for link in links:
-
-            if "R$" in link.text:
-                title = link.get('title')
-                price = link.find('p').get_text()
-                url = link.attrs['href']
+            if "R$" in item.text:
+                title = item.get('title')
+                price = item.find('p').get_text()
+                url = item.attrs['href']
         
                 print(price + ' - ' + title)
         
                 lista.append([title, price, url])
-            
-        print("\n--------------------------------------------------------------------------------------") 
-    
-    else:
-        
-        print("URL Inacessível, código de erro: " + result.status_code)
-        print("\n--------------------------------------------------------------------------------------")
 
     return(lista)
 
-
-    
 def sendmail(lista, EMAIL_ADDRESS=EMAIL_ADDRESS, EMAIL_PASSWORD=EMAIL_PASSWORD):
 
     msg = EmailMessage()
-    msg['Subject'] = "[OL' X-CRAPPER] Novo item anunciado: " + lista[0][0] + " - " + lista[0][1]
+    msg['Subject'] = "[OLXCRAPPER] Novo item: " + lista[0][0] + " - " + lista[0][1]
     msg['From'] = EMAIL_ADDRESS
     msg['To'] = EMAIL_ADDRESS
     msg.set_content('Link para o anuncio: ' + lista[0][2])
@@ -80,22 +67,28 @@ def sendmail(lista, EMAIL_ADDRESS=EMAIL_ADDRESS, EMAIL_PASSWORD=EMAIL_PASSWORD):
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
         smtp.send_message(msg)
-        
+
 def checkandsend(listaOld):
-    listaNew = webscraper()
+    listaNew = webscrap()
     if listaNew[0][0] != listaOld[0][0]:
+        print("\n--------------------------------------------------------------------------------------")
         print("O item mais recentemente anunciado é: " + listaNew[0][0] + " - " + listaNew[0][1])
         sendmail(listaNew)
         global old 
         old = listaNew
     elif listaNew[0][0] == listaOld[0][0]:
+        print("\n--------------------------------------------------------------------------------------")
         print("O item mais recentemente anunciado continua sendo: " + old[0][0] + " - " + old[0][1])
     
-old = webscraper()
+old = webscrap()
 
 while True:
     
-    checkandsend(old)
-    
-    time.sleep(15)
-        
+    banner()
+    statuscodenumber = statuscode()
+    if statuscodenumber == 200:
+        checkandsend(old)
+    else:
+        print("Erro de conexão, código de status do site: " + str(statuscodenumber))
+
+    time.sleep(30)
