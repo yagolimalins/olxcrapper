@@ -8,42 +8,39 @@
 
 </h1>
 
-> Script de Web Scraping em Python para categorias da OLX com notificações de novos anúncios por EMAIL 
-
 ### [Homepage](https://github.com/yagolimalins/OLXCRAPPER)
 
-## Instruções
+## Introdução
+
+Script em Python + Beautiful Soup que realiza consultas exaustivas em categorias da OLX em busca de anúncios novos
+ao encontrar um novo anúncio nessa categoria, ele usa as credenciais de login do GMail fornecidas nas variáveis do script
+para enviar para si mesmo um Email com informações sobre o novo produto da categoria.
+
+## Requisitos
 
 Esse script depende do Python e dos módulos: bs4, smtplib, email, requests, time. 
 
-Mude a variavel URL do script para o link da categoria da OLX que deseja fazer scraping. 
-
-Esse script utiliza-se das variáveis de ambiente EMAIL_USER e EMAIL_PASS para 
-login e envio dos emails de notificação de novos anúncios da categoria selecionada,
-adicione as variáveis de ambiente ao seu sistema, onde EMAIL_USER é a variável que irá 
-armazenar o seu endereço de email, e EMAIL_PASS armazenará a senha do seu email, 
-variáveis de ambiente são utilizadas nesse script para que seus dados pessoais 
-não sejam expostos no código. 
-
-OBS: ESSE SCRIPT USA O SERVIDOR DO GMAIL, UTILIZE DADOS DE LOGIN DE UMA CONTA GOOGLE AO DEFINIR 
-AS VARIÁVEIS DE AMBIENTE EMAIL_USER e EMAIL_PASS NO SISTEMA.
+O usuário tem que usar uma conta do GMail, por enquanto é o unico servidor suportado.
 
 ## Instalação e uso
 
-Após instaladas todas as dependências necessárias 
-e configurar as variáveis de ambiente, execute os comandos:
 ```sh
 git clone https://github.com/yagolimalins/OLXCRAPPER.git
 cd OLXCRAPPER
+```
+
+Edite o script OLXCRAPPER.py com o link da categoria da OLX que deseja fazer scraping, e com os dados
+de login da conta Google, talvez seja necessário habilitar acesso de apps menos seguros na conta ou 
+uma senha de app na conta Google para usar o script.
+
+Após isso salve o arquivo e execute o seguinte comando no diretório do script:
+
+```sh
 python ./OLXCRAPPER.py
 ```
-Após iniciado o script continuará checando a categoria informada na URL do script a cada 10 seg,
-caso haja algum anúncio novo nessa categoria, o script irá enviar um email para o endereço
-configurado nas variável de ambiente EMAIL_USER do sistema do usuário.
-
-OBS: Quando iniciado, o script enviará um email com o anuncio mais recente como teste, e só
-voltará a enviar um novo email de notificação quando surgir um novo anúncio para evitar spammar
-sua caixa de email :)
+O script irá executar continuamente e irá atualizar a lista a cada 15 segundos, sempre que encontrar um
+anúncio novo na categoria referida pela variável URL editada no script, ele enviará um email para o usuário
+com as informações do anúncio.
 
 ## Autor
 
