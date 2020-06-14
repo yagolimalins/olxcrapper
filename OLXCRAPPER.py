@@ -5,7 +5,7 @@ import os
 import smtplib
 from email.message import EmailMessage
 
-url = "https://al.olx.com.br/autos-e-pecas/carros-vans-e-utilitarios" # <- MUDE O LINK DE ACORDO COM A CATEGORIA DESEJADA
+url = "https://www.olx.com.br/autos-e-pecas" # <- MUDE O LINK DE ACORDO COM A CATEGORIA DESEJADA
 
 EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
@@ -65,7 +65,7 @@ def webscraper(url=url, headers=headers):
 def sendmail(lista, EMAIL_ADDRESS=EMAIL_ADDRESS, EMAIL_PASSWORD=EMAIL_PASSWORD):
 
     msg = EmailMessage()
-    msg['Subject'] = "[OL' X-CRAPPER] Novo item anunciado: " + lista[0][0] + " por " + lista[0][1]
+    msg['Subject'] = "[OL' X-CRAPPER] Novo item anunciado: " + lista[0][0] + " - " + lista[0][1]
     msg['From'] = EMAIL_ADDRESS
     msg['To'] = EMAIL_ADDRESS
     msg.set_content('Link para o anuncio: ' + lista[0][2])
@@ -75,30 +75,22 @@ def sendmail(lista, EMAIL_ADDRESS=EMAIL_ADDRESS, EMAIL_PASSWORD=EMAIL_PASSWORD):
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
         smtp.send_message(msg)
-
-
-if __name__ == '__main__':
-
-    lista3 = []
-
-    while True:
         
-        lista1 = webscraper()
-        print("Item mais recentemente postado: " + lista1[0][0] + " por " + lista1[0][1])
-        print("--------------------------------------------------------------------------------------")
+def checkandsend(listaOld):
+    listaNew = webscraper()
+    if listaNew[0][0] != listaOld[0][0]:
+        print("O item mais recentemente anunciado é: " + listaNew[0][0] + " - " + listaNew[0][1])
+        sendmail(listaNew)
+        global old 
+        old = listaNew
+    elif listaNew[0][0] == listaOld[0][0]:
+        print("O item mais recentemente anunciado continua sendo: " + old[0][0] + " - " + old[0][1])
+    
+old = webscraper()
 
-        if lista1 != lista3:
-            sendmail(lista1)
-            lista3 = lista1 
+while True:
+    
+    checkandsend(old)
+    
+    time.sleep(15)
         
-        time.sleep(10)
-        
-        lista2 = webscraper()
-        print("Item mais recentemente postado: " + lista2[0][0]  + " por " + lista2[0][1])
-        print("--------------------------------------------------------------------------------------")
-
-        if lista1 != lista2:
-            sendmail(lista2)
-            lista3 = lista2
-
-        time.sleep(10)
