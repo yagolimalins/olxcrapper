@@ -7,8 +7,13 @@ from email.message import EmailMessage
 
 url = "https://www.olx.com.br/autos-e-pecas" # <- MUDE O LINK DE ACORDO COM A CATEGORIA DESEJADA
 
-EMAIL_ADDRESS = os.environ.get('EMAIL_USER')
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_ADDRESS = 'xxxxxx@gmail.com' # <- INSIRA SEU GMAIL ENTRE ASPAS COMO NO EXEMPLO
+EMAIL_PASSWORD = 'xxxxxxxxxxxxxxxx' # <- INSIRA SUA SENHA ENTRE ASPAS COMO NO EXEMPLO
+
+# Alternativamente você pode usar as variáveis de ambiente abaixo caso as mesmas estejam configuradas no sistema
+
+#EMAIL_ADDRESS = os.environ.get('EMAIL_USER') 
+#EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'} 
 
