@@ -1,22 +1,33 @@
 import os
 import time
 import smtplib
+import argparse
 import requests
 from getpass import getpass
 from bs4 import BeautifulSoup
 from email.message import EmailMessage
 
+
 # DECLARAÇÃO E INICIALIZAÇÃO DE VARIÁVEIS:
 
-EMAIL_ADDRESS = os.environ.get('EMAIL_USER') 
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
-url = 'https://www.olx.com.br/celulares'
+parser = argparse.ArgumentParser(description='Dados do GMail e URL da categoria')
+parser.add_argument('-u', '--URL', type=str, metavar='', required=True, help='Link da categoria da OLX (ex: https://sp.olx.com.br/celulares')
+parser.add_argument('-g', '--GMAIL', type=str, metavar='', required=True, help='Endereço do GMail')
+parser.add_argument('-s', '--SENHA', type=str, metavar='', required=True, help='Senha do GMail')
+
+args = parser.parse_args()
+
+URL = args.URL
+EMAIL_ADDRESS = args.GMAIL
+EMAIL_PASSWORD = args.SENHA
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'}
 timesleep = 15
 
+
 # DECLARAÇÃO DE FUNÇÕES:
+
 
 def banner():
 
@@ -41,16 +52,16 @@ def screen_clear():
       _ = os.system('cls')
 
 
-def statuscode(url=url, headers=headers):
+def statuscode(URL=URL, headers=headers):
 
-    result = requests.get(url, headers=headers)
+    result = requests.get(URL, headers=headers)
     statuscodenumber = int(result.status_code)
 
     return(statuscodenumber)
 
-def webscrap(url=url, headers=headers, ):
+def webscrap(URL=URL, headers=headers, ):
 
-    result = requests.get(url, headers=headers)
+    result = requests.get(URL, headers=headers)
     src = result.content
     soup = BeautifulSoup(src, 'lxml')
     items = soup.find_all('a')
@@ -62,8 +73,8 @@ def webscrap(url=url, headers=headers, ):
 
                     title = item.get('title')
                     price = item.find('p').get_text()
-                    url = item.attrs['href']
-                    lista.append([title, price, url])
+                    URL = item.attrs['href']
+                    lista.append([title, price, URL])
 
                     print(price + ' - ' + title)
         
@@ -72,7 +83,9 @@ def webscrap(url=url, headers=headers, ):
 
     return(lista)
 
+
 # EXECUÇÃO DO SCRIPT:
+
 
 banner()
 
