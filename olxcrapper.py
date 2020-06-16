@@ -23,7 +23,7 @@ EMAIL_ADDRESS = args.GMAIL
 EMAIL_PASSWORD = args.SENHA
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0'}
-timesleep = 15
+timesleep = 5
 
 
 # DECLARAÇÃO DE FUNÇÕES:
@@ -31,7 +31,6 @@ timesleep = 15
 
 def banner():
 
-    print()
     print("╔═══════════════════════════════════════════════════════════════════════════════════════════════╗")
     print("║  ██████╗ ██╗    ██╗     ██╗  ██╗      ██████╗██████╗  █████╗ ██████╗ ██████╗ ███████╗██████╗  ║")
     print("║ ██╔═══██╗██║    ╚═╝      ██╗██╔╝     ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗ ║")
@@ -41,7 +40,7 @@ def banner():
     print("║  ╚═════╝ ╚══════╝       ╚═╝  ╚═╝      ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝╚═╝  ╚═╝ ║")
     print("╚═══════════════════════════════════════════════════════════════════════════════════════════════╝")
     print("  Ferramenta de busca por novos anúncios em categorias da OLX com notificações por email (GMail) ")
-    print("Autor: Yago Lima Lins | yago.lima.lins@protonmail.com | https://github.com/yagolimalins/OLXCRAPPER")
+    print("Autor: Yago Lima Lins | yago.lima.lins@protonmail.com | https://github.com/yagolimalins/olxcrapper")
     print("-------------------------------------------------------------------------------------------------\n")
 
 
