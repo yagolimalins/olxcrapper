@@ -8,7 +8,7 @@
 
 </h1>
 
-### [Homepage](https://github.com/yagolimalins/OLXCRAPPER)
+### [Homepage](https://github.com/yagolimalins/olxcrapper)
 
 ## Introdução
 
@@ -18,29 +18,46 @@ para enviar para o próprio usuário um Email com informações sobre o novo pro
 
 ## Requisitos
 
-Esse script depende do Python e dos módulos: bs4, smtplib, email, requests, time. 
+Esse script depende do Python e dos módulos: bs4, requests, lxml, argparse.
 
 O usuário tem que usar uma conta do GMail, por enquanto é o unico servidor suportado.
 
 ## Instalação e uso
 
-```sh
-git clone https://github.com/yagolimalins/OLXCRAPPER.git
-cd OLXCRAPPER
-```
-
-Edite o script OLXCRAPPER.py com o link da categoria da OLX que deseja fazer scraping, e com os dados
-de login da conta Google, talvez seja necessário habilitar acesso de apps menos seguros na conta ou 
-uma senha de app na conta Google para usar o script.
-
-Após isso salve o arquivo e execute o seguinte comando no diretório do script:
+Certifique-se de que tem instalados o git e python instalados, após isso installe as dependências 
+requeridas pelo script utilizando os seguintes comandos no terminal:
 
 ```sh
-python ./OLXCRAPPER.py
+python -m pip install bs4 requests lxml argparse
 ```
-O script irá executar continuamente e irá atualizar a lista a cada 15 segundos, sempre que encontrar um
-anúncio novo na categoria referida pela variável URL editada no script, ele enviará um email para o usuário
-com as informações do anúncio.
+
+Após isso você já pode clonar o repositório e utilizar o script como exemplificado abaixo:
+
+```sh
+git clone https://github.com/yagolimalins/olxcrapper.git
+cd olxcrapper
+python ./olxcrapper.py -g seuemail@gmail.com -s senhadogmail -u https://sp.olx.com.br/celulares
+```
+
+Substitua os dados de login acima com suas credenciais do gmail e com o link da categoria desejada.
+
+Quanto a conta do GMail, sugiro criar uma nova conta pra uso desse script para que sua caixa de entrada
+não seja floodada com emails do tipo, é importante que na conta do GMail utilizada esteja habilitada
+a opção de acesso de apps menos confiáveis, ou caso deseje mais segurança ao utilizar sua conta, habilite
+a opção de autenticação de dois fatores e crie uma senha exclusiva para o uso desse script, esse tipo de senha
+é gerada automaticamente pela conta da google e tem 16 caracteres, ex: "gzhupbrkrdbfhpiy", você pode gerar
+uma senha de app aqui: https://security.google.com/settings/security/apppasswords
+
+Quanto ao link da categoria da olx desejada, para obter um link utilizável, acesse a categoria da olx desejada
+escolha seu estado e/ou cidade e copie o link do navegador pra substituir no comando exemplificado acima.
+
+O script irá executar continuamente e irá atualizar a lista a cada 5 segundos, sempre que encontrar um
+anúncio novo na categoria referida pelo usuário, o mesmo enviará um email para a caixa de entrada do GMail indicado,
+esse script só enviará email caso haja um anuncio novo, assim evitando floodar a caixa de entrada.
+
+OBS: é importante inserir os dados de login corretamente, caso estejam incorretos, o script executará, mostrará
+a listagem de anúncios mas não conseguirá notificar por email.
+
 
 ## Autor
 
@@ -51,7 +68,7 @@ com as informações do anúncio.
 ## Contribua com o projeto
 
 Contribuições, bugs e pedidos de novas funcionalidades são bem vindos! <br />
-Sinta-se a vontade para conferir: [issues page](https://github.com/yagolimalins/OLXCRAPPER/issues). 
+Sinta-se a vontade para conferir: [issues page](https://github.com/yagolimalins/olxcrapper/issues). 
 
 ## Apoie o autor
 
