@@ -41,19 +41,21 @@ python ./olxcrapper.py -g seuemail@gmail.com -s senhadogmail -u https://sp.olx.c
 
 Substitua os dados de login acima com suas credenciais do gmail e com o link da categoria desejada.
 
-Quanto a conta do GMail, sugiro criar uma nova conta pra uso desse script para que sua caixa de entrada
-não seja floodada com emails do tipo, é importante que na conta do GMail utilizada esteja habilitada
-a opção de acesso de apps menos confiáveis, ou caso deseje mais segurança ao utilizar sua conta, habilite
-a opção de autenticação de dois fatores e crie uma senha exclusiva para o uso desse script, esse tipo de senha
-é gerada automaticamente pela conta da google e tem 16 caracteres, ex: "gzhupbrkrdbfhpiy", você pode gerar
-uma senha de app aqui: https://security.google.com/settings/security/apppasswords
+* Quanto a conta do GMail, sugiro criar uma nova conta pra uso desse script para que sua caixa de entrada
+  não seja floodada com emails do tipo, é importante que na conta do GMail utilizada esteja habilitada
+a opção de acesso de apps menos confiáveis.
 
-Quanto ao link da categoria da olx desejada, para obter um link utilizável, acesse a categoria da olx desejada
+* Caso deseje mais segurança ao utilizar sua conta, habilite
+  a opção de autenticação de dois fatores e crie uma senha exclusiva para o uso desse script, esse tipo de senha
+  é gerada automaticamente pela conta da google e tem 16 caracteres, ex: "gzhupbrkrdbfhpiy", você pode gerar
+  uma senha de app aqui: https://security.google.com/settings/security/apppasswords
+
+* Quanto ao link da categoria da olx desejada, para obter um link utilizável, acesse a categoria da olx desejada
 escolha seu estado e/ou cidade e copie o link do navegador pra substituir no comando exemplificado acima.
 
-O script irá executar continuamente e irá atualizar a lista a cada 5 segundos, sempre que encontrar um
-anúncio novo na categoria referida pelo usuário, o mesmo enviará um email para a caixa de entrada do GMail indicado,
-esse script só enviará email caso haja um anuncio novo, assim evitando floodar a caixa de entrada.
+* O script irá executar continuamente e irá atualizar a lista a cada 5 segundos, sempre que encontrar um
+  anúncio novo na categoria referida pelo usuário, o mesmo enviará um email para a caixa de entrada do GMail indicado,
+  esse script só enviará email caso haja um anuncio novo, assim evitando floodar a caixa de entrada.
 
 OBS: é importante inserir os dados de login corretamente, caso estejam incorretos, o script executará, mostrará
 a listagem de anúncios mas não conseguirá notificar por email.
