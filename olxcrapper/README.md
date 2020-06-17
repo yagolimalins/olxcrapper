@@ -15,6 +15,7 @@ O usuário tem que usar uma conta do GMail, por enquanto é o unico servidor sup
 ## Instalação e uso
 
 ```sh
+pip install olxcrapper
 olxcrapper -g seuemail@gmail.com -s senhadogmail -u https://sp.olx.com.br/celulares -t 15
 ```
 
