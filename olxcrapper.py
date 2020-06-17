@@ -16,7 +16,7 @@ def main():
     parser.add_argument('-u', '--url', type=str, metavar='', required=True, help='Link da categoria da OLX (ex: https://sp.olx.com.br/celulares')
     parser.add_argument('-g', '--gmail', type=str, metavar='', required=True, help='Endereço do GMail')
     parser.add_argument('-s', '--senha', type=str, metavar='', required=True, help='Senha do GMail')
-    parser.add_argument('-t', '--timesleep', type=str, metavar='', required=True, help='Tempo entre atualizações')
+    parser.add_argument('-t', '--timesleep', type=int, metavar='', required=True, help='Tempo entre atualizações')
 
     args = parser.parse_args()
 
