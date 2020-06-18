@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name="olxcrapper",
-    version="0.1.7",
+    version="0.1.8",
     description="Ferramenta de scraping de categorias da OLX BR com suporte a notificação de anúncios novos no GMail.",
     long_description=readme(),
     long_description_content_type="text/markdown",
