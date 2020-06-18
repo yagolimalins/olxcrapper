@@ -16,7 +16,7 @@ O usuário tem que usar uma conta do GMail, por enquanto é o unico servidor sup
 
 ```sh
 pip install olxcrapper
-olxcrapper -g seuemail@gmail.com -s senhadogmail -u https://sp.olx.com.br/celulares -t 15
+olxcrapper -g seuemail@gmail.com -s senhadogmail -u https://sp.olx.com.br/celulares -t 60
 ```
 
 Substitua os dados de login acima com suas credenciais do gmail e com o link da categoria desejada.
@@ -38,7 +38,8 @@ Substitua os dados de login acima com suas credenciais do gmail e com o link da 
   esse script só enviará email caso haja um anuncio novo, assim evitando floodar a caixa de entrada.
 
 OBS: é importante inserir os dados de login corretamente, caso estejam incorretos, o script executará, mostrará
-a listagem de anúncios mas não conseguirá notificar por email.
+a listagem de anúncios mas não conseguirá notificar por email. Também é interessante deixar o argumento -t com valor 60
+pois a listagem da olx só atualiza a cada 1 minuto, valores menores que 60 segundos pode causar mau comportamento do script.
 
 
 ## Autor
