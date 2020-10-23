@@ -72,7 +72,7 @@ def main():
 
 
     def statuscode(URL=URL, headers=headers):
-        if proxies is None:
+        if proxy is None:
         	result = requests.get(URL, headers=headers)
         else:
         	result = requests.get(URL, headers=headers, proxies=proxies)
@@ -82,7 +82,7 @@ def main():
         return(statuscodenumber)
 
     def webscrap(URL=URL, headers=headers):
-        if proxies is None:
+        if proxy is None:
         	result = requests.get(URL, headers=headers)
         else:
         	result = requests.get(URL, headers=headers, proxies=proxies)
