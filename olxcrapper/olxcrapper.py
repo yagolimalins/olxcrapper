@@ -71,13 +71,13 @@ def main():
             _ = os.system('cls')
 
 
-    def statuscode(URL=URL, headers=headers):
+    def statuscode():
         result = makeRequest()
         statuscodenumber = int(result.status_code)
 
         return(statuscodenumber)
 
-    def webscrap(URL=URL, headers=headers):
+    def webscrap():
         result = makeRequest()
         src = result.content
         soup = BeautifulSoup(src, 'lxml') # Usando o parser do BS4, alternativamente usar: (src, 'lxml')
@@ -99,7 +99,7 @@ def main():
 
         return(lista)
 
-    def makeRequest(URL=URL, headers=headers, proxy=proxy):
+    def makeRequest(URL=URL, headers=headers):
         if proxy is None:
             result = requests.get(URL, headers=headers)
         else:
