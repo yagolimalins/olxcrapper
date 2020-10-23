@@ -41,6 +41,16 @@ OBS: é importante inserir os dados de login corretamente, caso estejam incorret
 a listagem de anúncios mas não conseguirá notificar por email. Também é interessante deixar o argumento -t com valor 60
 pois a listagem da olx só atualiza a cada 1 minuto, valores menores que 60 segundos pode causar mau comportamento do script.
 
+## Proxy
+Caso necessite realizar a requisção através de um proxy, o parametro -p recebe uma string com a configuração de proxy, seja com autenticação
+ou não. Exemplo:
+```
+-p http://ip:porta
+```
+Ou ainda:
+```
+-p http://usuario:senha@ip:porta
+```
 
 ## Autor
 
