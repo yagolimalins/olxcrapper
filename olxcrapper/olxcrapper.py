@@ -43,7 +43,7 @@ def main():
     proxy = args.proxy
     
     if proxy is not None:
-    	proxies = {"http": proxy, "https": proxy}
+        proxies = {"http": proxy, "https": proxy}
 
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36'}
 
@@ -72,21 +72,13 @@ def main():
 
 
     def statuscode(URL=URL, headers=headers):
-        if proxy is None:
-        	result = requests.get(URL, headers=headers)
-        else:
-        	result = requests.get(URL, headers=headers, proxies=proxies)
-
+        result = makeRequest()
         statuscodenumber = int(result.status_code)
 
         return(statuscodenumber)
 
     def webscrap(URL=URL, headers=headers):
-        if proxy is None:
-        	result = requests.get(URL, headers=headers)
-        else:
-        	result = requests.get(URL, headers=headers, proxies=proxies)
-
+        result = makeRequest()
         src = result.content
         soup = BeautifulSoup(src, 'lxml') # Usando o parser do BS4, alternativamente usar: (src, 'lxml')
         items = soup.find_all('a')
@@ -106,6 +98,14 @@ def main():
         print("\n-------------------------------------------------------------------------------------------------")
 
         return(lista)
+
+    def makeRequest(URL=URL, headers=headers, proxy=proxy):
+        if proxy is None:
+            result = requests.get(URL, headers=headers)
+        else:
+            result = requests.get(URL, headers=headers, proxies=proxies)
+
+        return(result)
 
     # EXECUÇÃO DO SCRIPT:
 
@@ -148,4 +148,4 @@ def main():
         time.sleep(timesleep)
 
 if __name__ == "__main__":
-	main()
+    main()
